@@ -21,15 +21,13 @@ boxs.forEach((box) => {
         }
         box.disabled = true;
 
-        // ✅ Small delay to ensure UI updates first
         setTimeout(checkwinner, 100); 
     });
 });
 
-// ✅ Function to Show Winner After Delay
 const showwinner = (winner) => {
     setTimeout(() => {
-        alert(`🎉 Congratulations! Winner is ${winner} 🎉`);
+        alert(` Congratulations! Winner is ${winner} `);
     }, 200); 
 };
 
@@ -41,7 +39,7 @@ let checkwinner = function () {
 
         if (pos1 !== "" && pos1 === pos2 && pos2 === pos3) {
             console.log("Winner:", pos1);
-            showwinner(pos1); // ✅ Delayed Winner Alert
+            showwinner(pos1); 
             
         }
     }
