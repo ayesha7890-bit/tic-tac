@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style> 
+    /* Navbar basic styling */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #f4f4f4;
+    }
+
+    /* Navbar container */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(244,171,205,1) 4%, rgba(228,176,206,1) 11%, rgba(218,177,209,1) 22%, rgba(208,179,213,1) 33%, rgba(198,180,216,1) 44%, rgba(148,187,233,1) 100%);
+        padding: 15px 20px;
+        color: white;
+    }
+
+    /* Logo styling */
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Navigation links styling */
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #f4b400;
+    }
+
+    /* Hamburger menu styling */
+    .menu-toggle {
+        font-size: 28px;
+        display: none;
+        cursor: pointer;
+    }
+    body{  
+        background: #000;
+    }
+
+        
+    .cmd{
+        position: 
+        absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 90px;
+        color: #f4f4f4;
+        transform: translate(-50%,-50%);
+        background-image: ;
+
+    }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MY PORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+
+    
+        <h1 class="cmd">i am
+             ayesha shah</h1>
+        
+
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // Navbar Animation
+        var tl = gsap.timeline();
+        tl.from(".logo", { 
+            y: -30, 
+            opacity: 0, 
+            duration: 1, 
+            
+        });
+
+        tl.from(".nav-links li", { 
+            y: -20, 
+            opacity: 0, 
+            duration: 0.5, 
+            stagger: 0.2 
+        });
+        tl.from(".cmd",{
+            y:30,
+            opacity:0,
+            duration:0.5,
+            scale:0.4,
+        })
+
+        // GSAP Animation Complete
+    </script>
+
+</body>
+</html>

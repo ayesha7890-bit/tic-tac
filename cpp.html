@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+
+        }
+        body{
+            background: #50b45d;
+            text-align: center;
+
+        }
+        .container{
+            /* height: 500px;
+            width: 350px; */
+            background: #000;
+            height: 70lvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .game{
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vmin;
+
+
+            background: #996e6e;
+        }
+        .box{
+            height: 18vmin;
+            width: 18vmin;
+            border-radius: 10px;
+        }
+        #reset{
+            padding: 10px;
+            font-size: 19px;
+            margin-top: 2px;
+        }
+        .msgcon{
+            height: 50px;
+        }
+        #new{
+            padding: 5px;
+            margin-top: 10px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head> 
+<body>
+    <div class="msgcon  hide ">
+        <p id="msg1"> congres you  are winning</p>
+        <button id="new">new game</button>
+
+
+    </div>
+    <main>
+        <h1>tic tac to </h1>
+        <div class="container">
+        <div class="game">
+            <button class="box"></button>
+            <button class="box"></button>
+
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+
+        </div>
+        </div>
+        <button id="reset">reset game</button>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold text-blue-500">Startup</h1>
+            <button id="menuToggle" class="md:hidden text-2xl">☰</button>
+            <ul id="navMenu" class="hidden md:flex space-x-6 text-lg">
+                <li><a href="#hero" class="hover:text-blue-500">Home</a></li>
+                <li><a href="#features" class="hover:text-blue-500">Features</a></li>
+                <li><a href="#testimonials" class="hover:text-blue-500">Testimonials</a></li>
+                <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" class="fixed top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded">Dark Mode</button>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="h-screen flex flex-col justify-center items-center text-center bg-blue-500 text-white p-6">
+        <h1 class="text-5xl font-bold">Welcome to Our Startup</h1>
+        <p class="text-xl mt-4">Innovative solutions to boost your business</p>
+        <button class="mt-6 px-6 py-3 bg-white text-blue-500 font-semibold rounded-lg shadow-lg hover:bg-gray-200">Get Started</button>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-6 text-center">
+        <h2 class="text-3xl font-bold">Why Choose Us?</h2>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold">Feature 1</h3>
+                <p>High-quality solutions tailored for your needs.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold">Feature 2</h3>
+                <p>Fast and reliable services that save time.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold">Feature 3</h3>
+                <p>Customer satisfaction is our top priority.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-gray-200 text-center">
+        <h2 class="text-3xl font-bold">What Our Clients Say</h2>
+        <p class="mt-4 italic">"This service transformed my business! Highly recommended."</p>
+    </section>
+    
+    <!-- Contact Form -->
+    <section id="contact" class="py-16 text-center">
+        <h2 class="text-3xl font-bold">Get in Touch</h2>
+        <form id="contactForm" class="mt-6">
+            <input type="email" id="emailInput" placeholder="Enter your email" class="p-3 border rounded-lg w-1/2">
+            <button type="submit" class="p-3 bg-blue-500 text-white rounded-lg ml-2">Subscribe</button>
+            <p id="emailError" class="text-red-500 hidden mt-2">Please enter a valid email.</p>
+        </form>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4">
+        <p>&copy; 2025 Startup Inc. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('text-white');
+        });
+
+        // Email Validation using Regex
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('emailInput').value;
+            const emailError = document.getElementById('emailError');
+            
+            // Regular Expression for Email Validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailPattern.test(emailInput)) {
+                emailError.classList.remove('hidden');
+            } else {
+                emailError.classList.add('hidden');
+                alert('Thank you for subscribing!');
+            }
+        });
+
+        // Mobile Navbar Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

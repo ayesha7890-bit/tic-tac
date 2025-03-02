@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Status</title>
+    <style>
+        .battery {
+            width: 200px;
+            height: 50px;
+            border: 2px solid #000;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .battery-bar {
+            height: 100%;
+            border-radius: 5px;
+            width: 100%;
+            transition: width 0.5s, background-color 0.5s; /* Smooth transition for color and width */
+        }
+    </style>
+</head>
+<body>
+    <div class="battery">
+        <div class="battery-bar"></div>
+    </div>
+
+    <script>
+        // Check battery status
+        function updateBatteryStatus(battery) {
+            const batteryBar = document.querySelector('.battery-bar');
+            const batteryLevel = battery.level * 100; // Get battery level as a percentage
+            
+            // Change color based on battery percentage
+            if (batteryLevel <= 10) {
+                batteryBar.style.backgroundColor = 'silver'; // Red color for low battery
+            } else if (batteryLevel <= 23) {
+                batteryBar.style.backgroundColor = 'green'; // Green color for medium battery
+            } else {
+                batteryBar.style.backgroundColor = 'limegreen'; // Green color for sufficient battery
+            }
+            
+            // Update width based on battery level
+            batteryBar.style.width = batteryLevel + '%';
+        }
+
+        // Listen for battery status changes
+        if (navigator.getBattery) {
+            navigator.getBattery().then(function(battery) {
+                updateBatteryStatus(battery);
+                
+                // Listen for changes in battery level
+                battery.addEventListener('levelchange', function() {
+                    updateBatteryStatus(battery);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
